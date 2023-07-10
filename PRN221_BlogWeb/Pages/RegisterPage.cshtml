@@ -1,0 +1,44 @@
+﻿@page
+@model PRN221_BlogWeb.Pages.RegisterPageModel
+@{
+
+    <div class="w-50 py-5 mx-auto">
+        <h3 class="mb-4 text-center">Sign in and enjoy the best movies</h3>
+        <p class="mt-2 mb-2">@ViewData["emailExist"]</p>
+        <form asp-page="/Register" method="post">
+            <div class="mb-2">
+                <label class="form-label fw-bold">Full Name *</label>
+                <input required class="form-control"
+                   type="text"
+                   placeholder="Enter your name"
+                   asp-for="@Model.user.Fullname" />
+                <span class="text-danger" asp-validation-for="@Model.user.Fullname"></span><br />
+            </div>
+            <div class="mb-2">
+                <label class="form-label fw-bold">Username *</label>
+                <input required class="form-control"                   
+                   placeholder="Enter username"
+                   asp-for="@Model.user.Username" />
+                <span class="text-danger">@ViewData["invalidUsername"]</span><br />
+                <span class="msg-error" asp-validation-for="@Model.user.Username"></span><br />
+            </div>
+            <div class="mb-2 w-25">
+                <label class="form-label fw-bold">Gender</label>
+                <select class="form-select" name="gender">
+                    <option selected value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="form-label fw-bold">Password *</label>
+                <input required class="form-control"
+                   type="password"
+                   placeholder="*******"
+                   asp-for="@Model.user.Password" />
+                <span class="text-danger" asp-validation-for="@Model.user.Password"></span><br />
+            </div>          
+            <input class="btn w-100 btn-primary shadow" type="submit" value="Register" />
+
+        </form>
+    </div>
+}

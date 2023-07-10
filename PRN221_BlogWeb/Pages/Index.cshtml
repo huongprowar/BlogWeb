@@ -1,0 +1,68 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="col-md-8 align-self-center center">
+    @foreach (var blog in Model.listBlogs)
+    {
+        <table class="table center">
+            <tr>
+                <th class="center" align="center">@blog.Title</th>
+            </tr>
+            <tr>
+                <th>@blog.User.Username, @Html.DisplayFor(x => blog.CreatedAt)</th>
+            </tr>
+            <tr>
+                <td class="center" align="center">@blog.Content</td>
+            </tr>
+            <tr>
+                @foreach (var comment in blog.Comments)
+                {
+                    <table>
+                        <tr>
+                            <th>@comment.User.Username</th>
+                        </tr>
+                        <tr>
+                            <td>@comment.Content</td>
+                            @if (@User.Claims.Count() != 0)
+                            {
+                                @if (Convert.ToInt32(User.Claims.First().Value) == comment.UserId)
+                                {
+                                    <td><input type="submit" value="update" /></td>
+                                }
+                            }
+                        </tr>
+
+                    </table>
+
+                }
+            </tr>
+            @if (User.Claims.Count() != 0)
+            {
+                <tr>
+                    <form asp-page="/Index" asp-page-handler="comment" method="post">
+                    <td>
+                        <input name="commentcontent" type="text" />
+                    </td>
+                    <td>
+                        <input class="btn w-100 btn-primary shadow" type="submit" value="Comment" />
+                    </td>
+                    <input name="blogid" type="hidden" value="@blog.BlogId" />
+                    </form>
+                </tr>
+            }
+        </table>
+    }
+</div>
+<style>
+    /*table, th, td {
+                                                border: 1px solid black;
+                                                border-radius: 10px;
+                                            }*/
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>

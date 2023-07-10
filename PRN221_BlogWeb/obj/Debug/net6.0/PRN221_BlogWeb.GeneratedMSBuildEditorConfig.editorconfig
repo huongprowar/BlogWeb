@@ -1,0 +1,65 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PRN221_BlogWeb
+build_property.RootNamespace = PRN221_BlogWeb
+build_property.ProjectDir = E:\Project\PRU211\PRN221_BlogWeb\PRN221_BlogWeb\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\Project\PRU211\PRN221_BlogWeb\PRN221_BlogWeb
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/CommentPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbWVudFBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/CreateBlog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlQmxvZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/MyBlog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlCbG9nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/RegisterPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXJQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/UserLoginPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckxvZ2luUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-pezdptpk5b

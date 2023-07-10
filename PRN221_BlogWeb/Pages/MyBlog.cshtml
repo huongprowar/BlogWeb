@@ -1,0 +1,24 @@
+﻿@page
+@model PRN221_BlogWeb.Pages.MyBlogModel
+@{
+    @foreach (var blog in @Model.blogList)
+    {
+        <form asp-page="/MyBlog" method="post">
+            <table class="table center">
+                <tr>
+                    <th class="center" align="center"><input type="text" value="@blog.Title" asp-for="@Model.Blog.Title" /></th>
+                </tr>
+                <tr>
+                    <td class="center" align="center"><input type="text" value="@blog.Content" asp-for="@Model.Blog.Content" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="btn w-100 btn-primary shadow" asp-page-handler="update" method="post" type="submit" value="Update" />
+                        <input class="btn w-100 btn-primary shadow" asp-page-handler="delete" method="post" type="submit" value="Delete" />
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" value="@blog.BlogId" asp-for=@Model.Blog.BlogId />
+        </form>
+    }
+}

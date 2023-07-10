@@ -1,0 +1,14 @@
+﻿@page
+@model PRN221_BlogWeb.Pages.CreateBlogModel
+@{
+    <form asp-page="/CreateBlog" method="post">
+        <h3>Blog Title</h3>
+        <input type="text" placeholder="Blog Title" asp-for=@Model.blog.Title required>
+        <span class="text-danger" asp-validation-for="@Model.blog.Title" />
+
+        <h3>Blog Content</h3>
+        <input type="text" placeholder="Blog Content" asp-for=@Model.blog.Content required>
+        <span class="text-danger" asp-validation-for="@Model.blog.Content" />
+        <input class="btn btn-primary" type="submit" value="Create" />
+    </form>
+}

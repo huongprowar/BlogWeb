@@ -1,0 +1,35 @@
+﻿@page 
+@model PRN221_BlogWeb.Pages.LoginPageModel
+@{
+    <div class="col-12 col-md-6">
+        <div class="mw-md py-5 mx-auto">
+            <form asp-page="/UserLoginPage" method="post">
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Username *</label>
+                    <input class="form-control"                       
+                       placeholder="Enter username"
+                       asp-for="@Model.user.Username" />
+                    <span class="text-danger" asp-validation-for="@Model.user.Username"></span><br />
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Password *</label>
+                    <input class="form-control"
+                       type="password"
+                       placeholder="*******"
+                       asp-for="@Model.user.Password" />
+                    <span class="text-danger" asp-validation-for="@Model.user.Password"></span><br />                    
+                </div>
+                <div class="d-flex mb-5 flex-wrap align-items-center justify-content-between">
+                    <div>
+                        <a class="btn p-0 btn-link fs-9" asp-page="ForgotPassword">Forgot Password?</a>
+                    </div>
+                </div>
+                <input class="btn w-100 btn-primary shadow" type="submit" value="Sign In" />
+            </form>
+            <button class="btn mt-4 w-100 btn-success" onclick="window.location.href='/RegisterPage'" type="submit">
+                Register
+            </button>
+            <p class="text-danger">@ViewData["wrongaccount"]</p>
+        </div>
+    </div>
+}

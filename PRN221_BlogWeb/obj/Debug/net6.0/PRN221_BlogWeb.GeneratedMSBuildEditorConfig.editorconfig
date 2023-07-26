@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = E:\Project\PRU211\PRN221_BlogWeb\PRN221_BlogWeb
 build_property._RazorSourceGeneratorDebug = 
 
+[E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/CategoryManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlNYW5hZ2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Project/PRU211/PRN221_BlogWeb/PRN221_BlogWeb/Pages/CommentPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbWVudFBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

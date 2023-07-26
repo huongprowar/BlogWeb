@@ -1,0 +1,39 @@
+﻿@page
+@model PRN221_BlogWeb.Pages.CategoryManagerModel
+@{
+    <table>
+        <tr>
+            <h1>Create Category</h1>
+        </tr>
+        <tr>
+            <form asp-page="/CategoryManager" asp-page-handler="Create" method="post">
+                <input type="text" name="createCategoryName" />
+                <input type="submit" value="Create" />
+            </form>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var category in @Model.Categories)
+        {
+            <tr>
+                <form asp-page="/CategoryManager" asp-page-handler="Update" method="Post">
+                <td>@category.CategoryId</td>
+                <td>
+                    <input type="text" name="updateCategoryName" value="@category.CategoryName" />
+                    <input type="hidden" name="updateCategoryId" value="@category.CategoryId" asp-for="@Model.category" />
+                <td><input type="submit" value="update" /></td>
+                </td>
+                </form>
+                <form asp-page="/CategoryManager" asp-page-handler="Delete" method="Post">
+                <td><input type="submit" value="delete" /> </td>
+                <input type="hidden" name="deleteCategoryId" value="@category.CategoryId" asp-for="@Model.category" />
+                </form>
+            </tr>
+        }
+    </table>
+}

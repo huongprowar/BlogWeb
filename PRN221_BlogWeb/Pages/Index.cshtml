@@ -4,65 +4,105 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="col-md-8 align-self-center center">
-    @foreach (var blog in Model.listBlogs)
-    {
-        <table class="table center">
-            <tr>
-                <th class="center" align="center">@blog.Title</th>
-            </tr>
-            <tr>
-                <th>@blog.User.Username, @Html.DisplayFor(x => blog.CreatedAt)</th>
-            </tr>
-            <tr>
-                <td class="center" align="center">@blog.Content</td>
-            </tr>
-            <tr>
-                @foreach (var comment in blog.Comments)
-                {
-                    <table>
-                        <tr>
-                            <th>@comment.User.Username</th>
-                        </tr>
-                        <tr>
-                            <td>@comment.Content</td>
-                            @if (@User.Claims.Count() != 0)
+<div class="col-md-8 align-self-center center card">
+    <form asp-page="/Index" asp-page-handler="Search" method="GET">
+        <div class="input-group w-100">
+            <div class="form-outline flex-class w-75">
+                <input type="search" id="form1" class="form-control" name="SearchResult" asp-for="@Model.SearchResult" placeholder="Search" />
+            </div>
+            <div class="flex-class">
+                <select name="CategoryId">
+                    <option value="0">All</option>
+                    @foreach (var category in @Model.categories)
+                    {
+                        <option value="@category.CategoryId">@category.CategoryName</option>
+                    }
+                </select>
+            </div>
+            <div class="flex-class">
+                <button type="submit" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="blog-parent">
+        @foreach (var blog in Model.listBlogs)
+        {
+            <div class="blog w-100">
+                <table class="table center blog-content">
+                    <tr>
+                        <th class="center" align="center"><h1>@blog.Title</h1></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            @blog.User.Username, @Html.DisplayFor(x => blog.CreatedAt) @if (blog.Category != null)
                             {
-                                @if (Convert.ToInt32(User.Claims.First().Value) == comment.UserId)
-                                {
-                                    <td><input type="submit" value="update" /></td>
-                                }
+                                <p>(@blog.Category.CategoryName)</p>
                             }
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="center" align="left">@blog.Content</td>
+                    </tr>
+                    <tr>
+                        <table style="border-collapse:collapse; margin-bottom=50px;" class="w-100">
+                            @foreach (var comment in blog.Comments)
+                            {
+                                <tr>
+                                    <td><span style="font-weight:bold">@comment.User.Username:</span>@comment.Content</td>
+                                    @if (@User.Claims.Count() != 0)
+                                    {
+                                        @if (Convert.ToInt32(User.Claims.First().Value) == comment.UserId)
+                                        {
+                                            <form asp-page="/Index" asp-page-handler="DeleteComment" method="post">
+                                            <th><input type="submit" value="Delete" /></th>
+                                            <input type="hidden" name="commentId" value="@comment.CommentId" />
+                                            </form>
+                                        }
+                                    }
+                                </tr>
+                            }
+                        </table>
+                    </tr>
+
+                    @if (User.Claims.Count() != 0)
+                    {
+                        <tr>
+                            <form asp-page="/Index" asp-page-handler="comment" method="post">
+                            <td>
+                                <input class="w-100" name="commentcontent" type="text" />
+                            </td>
+                            <td>
+                                <input class="btn w-100 btn-primary shadow" type="submit" value="Comment" />
+                            </td>
+                            <input name="blogid" type="hidden" value="@blog.BlogId" />
+                            </form>
                         </tr>
-
-                    </table>
-
-                }
-            </tr>
-            @if (User.Claims.Count() != 0)
-            {
-                <tr>
-                    <form asp-page="/Index" asp-page-handler="comment" method="post">
-                    <td>
-                        <input name="commentcontent" type="text" />
-                    </td>
-                    <td>
-                        <input class="btn w-100 btn-primary shadow" type="submit" value="Comment" />
-                    </td>
-                    <input name="blogid" type="hidden" value="@blog.BlogId" />
-                    </form>
-                </tr>
-            }
-        </table>
-    }
+                    }
+                </table>
+            </div>
+        }
+    </div>
 </div>
 <style>
-    /*table, th, td {
-                                                border: 1px solid black;
-                                                border-radius: 10px;
-                                            }*/
     .center {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .flex-class {
+        display: flex
+    }
+
+    .blog-content {
+    }
+
+    .blog {
+        margin: 20px 0;
+        width: 100%;
+        border: 5px solid gray;
     }
 </style>

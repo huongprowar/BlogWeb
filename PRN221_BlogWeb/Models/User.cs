@@ -1,28 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace PRN221_BlogWeb.Models;
 
-public partial class User
-{
-    public int UserId { get; set; }
-    [Display(Name = "Fullname")]
-    public string Fullname { get; set; } = ""!;
-    [Display(Name = "Gender")]
-    [Required]
-    public bool Gender { get; set; }
-    [Required]    
-    [Display(Name = "Username")]
-    public string Username { get; set; } = null!;
-    [Required]
-    [DataType(DataType.Password)]
-    [Display(Name = "Password")]
-    public string Password { get; set; } = null!;
+    public partial class User
+    {
+        public User()
+        {
+            Blogs = new HashSet<Blog>();
+            Comments = new HashSet<Comment>();
+        }
 
-    public bool IsActive { get; set; }
+        public int UserId { get; set; }
+        public string? Fullname { get; set; } = null!;
+        public bool Gender { get; set; }
+        public string Username { get; set; } = null!;
+        public string Password { get; set; } = null!;
+        public bool IsActive { get; set; }
 
-    public virtual ICollection<Blog> Blogs { get; set; } = new List<Blog>();
+        public virtual ICollection<Blog> Blogs { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
+    }
 
-    public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
-}

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using PRN221_BlogWeb.Models;
 using System.Security.Claims;
 
 namespace PRN221_BlogWeb.Pages
@@ -19,9 +18,12 @@ namespace PRN221_BlogWeb.Pages
             _context = new BlogWebContext();
         }
         [BindProperty]
-        public Blog blog { get; set; }  
+        public Blog blog { get; set; }
+        [BindProperty]
+        public List<Category> categories { get; set; }
         public void OnGet()
         {
+            categories = _context.Categories.ToList();
         }
         public async Task<IActionResult> OnPost(Blog blog)
         {

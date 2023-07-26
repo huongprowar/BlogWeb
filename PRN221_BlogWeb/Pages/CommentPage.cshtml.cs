@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PRN221_BlogWeb.Models;
+
 
 namespace PRN221_BlogWeb.Pages
 {

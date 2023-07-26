@@ -3,22 +3,47 @@
 @{
     @foreach (var blog in @Model.blogList)
     {
-        <form asp-page="/MyBlog" method="post">
-            <table class="table center">
-                <tr>
-                    <th class="center" align="center"><input type="text" value="@blog.Title" asp-for="@Model.Blog.Title" /></th>
-                </tr>
-                <tr>
-                    <td class="center" align="center"><input type="text" value="@blog.Content" asp-for="@Model.Blog.Content" /></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input class="btn w-100 btn-primary shadow" asp-page-handler="update" method="post" type="submit" value="Update" />
-                        <input class="btn w-100 btn-primary shadow" asp-page-handler="delete" method="post" type="submit" value="Delete" />
-                    </td>
-                </tr>
-            </table>
-            <input type="hidden" value="@blog.BlogId" asp-for=@Model.Blog.BlogId />
-        </form>
+        <div class="card">
+            <form asp-page="/MyBlog" method="post" asp-page-handler="delete">
+                <table class="table center">
+                    <tr>
+                        <th class="center w-100" align="center">
+                            <input type="text" value="@blog.Title" asp-for="@Model.Blog.Title" class="w-100" />
+                            <select name="categoryId">
+                                @foreach (var category in @Model.categories)
+                                {
+                                    if(category.CategoryId == blog.CategoryId)
+                                    {
+                                        <option value="@category.CategoryId" selected="selected">@category.CategoryName</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@category.CategoryId">@category.CategoryName</option>
+                                    }
+                                }
+                            </select>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="center w-100" align="center"><input type="text" value="@blog.Content" asp-for="@Model.Blog.Content" class="w-100 para-text" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="btn w-100 btn-primary shadow" asp-page-handler="update" method="post" type="submit" value="Update" />
+                            <input class="btn w-100 btn-primary shadow" asp-page-handler="delete" method="post" type="submit" value="Delete" />
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" value="@blog.BlogId" asp-for=@Model.Blog.BlogId />
+            </form>
+        </div>
     }
 }
+<style>
+    .para-text {
+        width: 80%;
+        padding: 10px;
+        border: 5px solid gray;
+        margin: 0;
+    }
+</style>
